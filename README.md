@@ -41,11 +41,13 @@ Once you've created the template, create the View itself.
 
 ##Steps (day two)
 ###1: Add a `toggle` method to your model that simply toggles the `completed` state 
+
 ###2: Add an event for when the check is clicked
 * The handler should call the model's `toggle` method
 * The handler should also trigger a re-render of the view 
 * Go into your template and add the necessary logic for adding a `completed` css class to the label
 * Test your application by adding a todo and then clicking it 'complete'
+
 ###3: Add a delete event
 * Similarly, add an event to delete the todo when the delete button is pressed
 * Use backbone's built-in view method of `remove` to force the removal of the view
@@ -58,4 +60,4 @@ Once you've created the template, create the View itself.
 	        this.listenTo(this.model, 'destroy', this.remove);
         },
  ```
-The `initialize` method belongs in the backbone View. The view listens for changes on its model to trigger certain behaviors. Think about how you could refactor your code to take advantage of this simpler method.
+The `initialize` method belongs in the backbone View. The view listens for changes on its model to trigger certain behaviors. Think about how you could refactor your code to take advantage of this simpler (and more efficient) method.
