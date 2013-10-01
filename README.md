@@ -7,7 +7,7 @@ The start of the backbone-todo project
 
 Build a functioning (albeit simple) MV* task list project using Backbonejs
 
-##Steps
+##Steps (day one)
 ###1: Create a Todo model.
 * Your model should have two attributes: `title`, and `completed`
 * `completed` should default to `false`
@@ -38,3 +38,24 @@ Once you've created the template, create the View itself.
 ###4: Add the `completed` state
 * Think about how you could show the `completed` state in the template's checkbox using underscore's template language. If you need a hint, try here: http://stackoverflow.com/questions/7230470/how-to-use-if-statements-in-underscore-js-templates
 * Test the completed state by adding new todos with the model's default value changed and see if the template reflects the change
+
+##Steps (day two)
+###1: Add a `toggle` method to your model that simply toggles the `completed` state 
+###2: Add an event for when the check is clicked
+* The handler should call the model's `toggle` method
+* The handler should also trigger a re-render of the view 
+* Go into your template and add the necessary logic for adding a `completed` css class to the label
+* Test your application by adding a todo and then clicking it 'complete'
+###3: Add a delete event
+* Similarly, add an event to delete the todo when the delete button is pressed
+* Use backbone's built-in view method of `remove` to force the removal of the view
+###4: Refactor your code
+* Take a look at the following code:
+
+```javascript
+        initialize: function () {
+	        this.listenTo(this.model, 'change', this.render);
+	        this.listenTo(this.model, 'destroy', this.remove);
+        },
+ ```
+The `initialize` method belongs in the backbone View. The view listens for changes on its model to trigger certain behaviors. Think about how you could refactor your code to take advantage of this simpler method.
