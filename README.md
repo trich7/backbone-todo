@@ -61,3 +61,10 @@ Once you've created the template, create the View itself.
         },
  ```
 The `initialize` method belongs in the backbone View. The view listens for changes on its model to trigger certain behaviors. Think about how you could refactor your code to take advantage of this simpler (and more efficient) method.
+
+###5: (Black Diamond): Implement an 'edit' mode
+* When the user clicks on the label, make the field editable
+  * Hint: have a hidden, absolutely positioned input that can be show/hidden when the view tells it to
+  * When in 'edit' mode, the main label should be hidden and the input should show
+  * The edit input should look seamless to the label 
+  * When the user presses enter, update the title of the model and re-render the view
